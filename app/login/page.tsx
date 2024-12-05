@@ -5,8 +5,7 @@ import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useRouter } from "next/navigation";
-import Link from "next/link"; // Import Next.js Link
-import Register from "@/components/Register/";
+import Link from "next/link"; 
 
 const LoginPage = () => {
   const [email, setEmail] = useState("");
