@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import axios from 'axios';
-import { useRouter } from 'next/navigation'; 
+import { useRouter } from 'next/navigation';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -13,19 +13,15 @@ const Register = () => {
   const [rol, setRol] = useState('user');
   const router = useRouter(); // Initialize useRouter
 
-  const handleRegister = async (e:React.FocusEvent) => {
+  const handleRegister = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
       const response = await axios.post('http://localhost:6800/api/register', { names, email, pass, rol });
       console.log('Registration successful:', response.data);
-      router.push('/'); 
+      router.push('/');
       toast.success('Register successfull');
     } catch (err) {
-        if(err.response && err.response.status === 400)
-            toast.error('Email already exists. Please use a different email.');
-        else{
-        toast.error('Login failed. Please check your credentials.');
-        }
+      toast.error('Login failed. Please check your credentials.');
     }
   };
   return (

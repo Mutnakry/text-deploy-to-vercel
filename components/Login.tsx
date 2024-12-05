@@ -12,7 +12,7 @@ const Page = () => {
     const [pass, setPassword] = useState('');
     const router = useRouter();
 
-    const handleLogin = async (e: React.FocusEvent) => {
+    const handleLogin = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         try {
             const response = await axios.post('http://localhost:6800/api/login', { email, pass });
